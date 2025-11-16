@@ -1,7 +1,7 @@
 import React from 'react'
 import { useShop } from '../context/ShopContext'
 import { Link } from 'react-router-dom';
-import { Star, StarHalf } from 'lucide-react';
+import RenderStars from './RenderStars';
 
 const ProductItem = ({ id, image, name, price, rating }) => {
   const { currency } = useShop();
@@ -10,45 +10,7 @@ const ProductItem = ({ id, image, name, price, rating }) => {
   const formattedPrice = price.toFixed(2);
 
 //   // Render star rating
-  const renderStars = (rate) => {
-    const stars = [];
-    const fullStars = Math.floor(rate);
-    const hasHalfStar = rate % 1 >= 0.5;
-
-    // Full stars
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(
-        <Star 
-          key={`full-${i}`} 
-          className="w-4 h-4 fill-yellow-400 text-yellow-400" 
-        />
-      );
-    }
-
-    // Half star
-    if (hasHalfStar) {
-      stars.push(
-        <StarHalf 
-          key="half" 
-          className="w-4 h-4 fill-yellow-400 text-yellow-400" 
-        />
-      );
-    }
-
-    // Empty stars
-    const emptyStars = 5 - Math.ceil(rate);
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <Star 
-          key={`empty-${i}`} 
-          className="w-4 h-4 text-gray-300" 
-        />
-      );
-    }
-
-    return stars;
-  };
-
+  
   return (
     <Link 
       to={`/product/${id}`} 
@@ -79,7 +41,7 @@ const ProductItem = ({ id, image, name, price, rating }) => {
           {/* Rating */}
           <div className='flex items-center gap-2'>
             <div className='flex items-center gap-0.5' aria-label={`Rated ${rating.rate} out of 5`}>
-              {renderStars(rating.rate)}
+              <RenderStars rate={rating.rate}/>
             </div>
             <span className='text-sm text-black'>
               {rating.rate}/5

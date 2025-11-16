@@ -36,6 +36,7 @@ const ShopContextProvider = ({ children }) => {
                 
                 setProducts(formattedProducts);
                 console.log(`Fetched ${data.length} products successfully`);
+                // console.log(data)
             } catch (error) {
                 console.error("Error fetching products:", error);
                 setError(error.message);
