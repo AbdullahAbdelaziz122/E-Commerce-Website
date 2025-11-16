@@ -14,7 +14,7 @@ const Hero = () => {
           
           
           {/* header */}
-          <div className="font-bold text-4xl leading-[34px] md:text-5xl md:leading-[60px] text-black font-bold font-['Alfa_Slab_One']">
+          <div className="font-bold text-4xl leading-[34px] md:text-5xl md:leading-[60px] text-black font-['Alfa_Slab_One']">
             FIND CLOTHES THAT MATCHES YOUR STYLE
           </div>
 
@@ -35,7 +35,7 @@ const Hero = () => {
 
 
           {/* stats section */}
-            <div className="flex flex-wrap justify-center items-start p-4 mt-8 gap-10 xs:gap-5 ">
+            <div className="flex flex-wrap justify-center items-start p-4 mt-8 gap-10 xs:gap-5 lg:justify-start">
             
             {/* Stat 1 */}
             <div className="flex-1 min-w-[120px] min-h-[92px] flex flex-col  md:max-w-max text-left p-3 rounded">
