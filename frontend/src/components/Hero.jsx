@@ -14,12 +14,12 @@ const Hero = () => {
           
           
           {/* header */}
-          <div className="font-bold text-4xl leading-[34px] md:text-5xl md:leading-[60px] text-black ">
+          <div className="font-bold text-4xl leading-[34px] md:text-5xl md:leading-[60px] text-black font-bold font-['Alfa_Slab_One']">
             FIND CLOTHES THAT MATCHES YOUR STYLE
           </div>
 
             {/* subheader */}
-          <div className="text-sm pt-3 text-stone-500 max-w-[545px] md:text-base ">
+          <div className="text-sm pt-3 text-stone-500 max-w-[545px] md:text-base font-mono">
             Browse through our diverse range of meticulously crafted garments,
             designed to bring out your individuality and cater to your sense of
             style.
