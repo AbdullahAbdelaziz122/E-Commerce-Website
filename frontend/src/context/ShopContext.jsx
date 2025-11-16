@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 
 const ShopContext = createContext();
-
+export {ShopContext};
 const ShopContextProvider = (props) => {
     
     const currency = '$';
@@ -43,4 +43,4 @@ const ShopContextProvider = (props) => {
     )
 }
 
-export default ShopContextProvider;
+export default {ShopContextProvider};
