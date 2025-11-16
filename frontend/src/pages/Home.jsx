@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Brands from '../components/Brands'
 import NewArrivals from '../components/NewArrivals'
 import TopSelling from '../components/TopSelling'
+import Categories from '../components/Categories'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <hr className=" border-gray-300" />
       <TopSelling />
 
+      <Categories /> 
     </div>
   )
 }
