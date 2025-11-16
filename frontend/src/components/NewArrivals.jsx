@@ -1,14 +1,21 @@
-import React, { useContext } from 'react'
-import { ShopContext } from '../context/ShopContext'
+import React, { useState } from 'react'
+import { useShop } from '../context/ShopContext.jsx'
+import Title from './Title.jsx';
 
 const NewArrivals = () => {
   
-    const {products} = useContext(ShopContext);
-
+    const {products} = useShop();
     
+    // last 4 products
+    const [newArrivals, setNewArrivals] = useState([]);
+
+    useState(()=> {
+        setNewArrivals(products.slice(-4));
+    },[])
+
     return (
-    <div>
-      
+    <div className='flex justify-center'>
+      <Title title="New Arrivals" />
     </div>
   )
 }
