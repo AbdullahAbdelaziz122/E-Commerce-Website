@@ -3,15 +3,15 @@ import { useShop } from '../context/ShopContext.jsx'
 import Title from './Title.jsx';
 import ProductItem from './ProductItem.jsx';
 import { Link } from 'react-router-dom';
-const NewArrivals = () => {
+const TopSelling = () => {
   const { products, loading } = useShop();
-  const newArrivals = products.slice(0, 4);
+  const topSelling = products.slice(4, 8);
 
   if (loading) {
     return (
       <section className='py-12 px-4 md:px-16 lg:px-24'>
         <div className='flex justify-center mb-8'>
-          <Title title="New Arrivals" />
+          <Title title="Top Selling" />
         </div>
         <div className='text-center text-gray-500'>Loading products...</div>
       </section>
@@ -22,12 +22,12 @@ const NewArrivals = () => {
     <section className='py-12 px-4 md:px-16 lg:px-24'>
       {/* Title */}
       <div className='flex justify-center mb-8'>
-        <Title title="New Arrivals" />
+        <Title title="Top Selling" />
       </div>
 
       {/* Product Grid */}
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
-        {newArrivals.map((product) => (
+        {topSelling.map((product) => (
           <ProductItem
             key={product.id}
             id={product.id}
@@ -49,4 +49,4 @@ const NewArrivals = () => {
   )
 }
 
-export default NewArrivals
+export default TopSelling;
