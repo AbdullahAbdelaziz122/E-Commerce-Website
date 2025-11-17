@@ -37,9 +37,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="relative grid grid-cols-[auto_minmax(400px, auto)_1fr_minmax(100px, auto)] items-center px-6 py-5 font-medium w-full">
+    <nav className="relative grid grid-cols-[auto_minmax(400px,auto)_1fr_minmax(100px,auto)] items-center px-6 py-5 font-medium w-full">
       {/* LEFT */}
-      <div className="flex col-span-2 md:col-1  items-center gap-4">
+      <div className="flex col-span-2 md:col-1 items-center gap-4">
         <img
           onClick={() => setVisible(true)}
           src={menuIcon}
@@ -54,6 +54,54 @@ const Navbar = () => {
             className="h-10 w-36 ml-4 cursor-pointer"
           />
         </Link>
+      </div>
+
+      {/* MOBILE MENU */}
+      <div
+        className={`fixed top-0 left-0 h-screen bg-white z-50 shadow-lg transition-all duration-300 ${
+          isVisible ? "w-4/5" : "w-0"
+        } overflow-hidden`}
+      >
+        <div className="flex flex-col text-gray-700">
+          {/* Back Button */}
+          <div
+            onClick={() => setVisible(false)}
+            className="flex items-center gap-3 p-4 cursor-pointer border-b"
+          >
+            <img src={closeIcon} alt="Close" className="h-4 rotate-180" />
+            <p>Back</p>
+          </div>
+
+          {/* Mobile Nav Items */}
+          <NavLink
+            to="/"
+            className="p-4 border-b hover:bg-gray-50"
+            onClick={() => setVisible(false)}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/shop"
+            className="p-4 border-b hover:bg-gray-50"
+            onClick={() => setVisible(false)}
+          >
+            Shop
+          </NavLink>
+          <NavLink
+            to="/new-arrivals"
+            className="p-4 border-b hover:bg-gray-50"
+            onClick={() => setVisible(false)}
+          >
+            New Arrivals
+          </NavLink>
+          <NavLink
+            to="/about"
+            className="p-4 border-b hover:bg-gray-50"
+            onClick={() => setVisible(false)}
+          >
+            About
+          </NavLink>
+        </div>
       </div>
 
       {/* CENTER NAV */}
