@@ -22,14 +22,14 @@ const Footer = () => {
         <footer className='bg-[#F0F0F0] pt-20 pb-10'>
             {/* Newsletter Section - Black Box */}
             <div className='px-4 md:px-16 lg:px-24'>
-                <div className='bg-black rounded-[20px] px-6 py-8 md:px-16 md:py-10 -mt-32 relative z-10'>
+                <div className='bg-black rounded-[20px] lg:grid lg:grid-cols-2 px-6 py-8 md:px-16 md:py-10 -mt-32 relative z-10'>
                     {/* Title */}
-                    <h2 className='text-white text-2xl md:text-4xl lg:text-[40px] font-bold text-center mb-8 leading-tight max-w-[550px] mx-auto'>
+                    <h2 className='text-white text-2xl md:text-4xl lg:text-3xl  font-bold text-center lg:text-start mb-8 leading-tight max-w-[550px] lg: mx-auto'>
                         STAY UPTO DATE ABOUT OUR LATEST OFFERS
                     </h2>
                     
                     {/* Email Input and Button */}
-                    <div className='flex flex-col gap-3 max-w-[350px] mx-auto'>
+                    <div className='flex flex-col gap-3 max-w-[350px] lg:w-full mx-auto lg:justify-center '>
                         {/* Email Input with Icon */}
                         <div className='relative'>
                             <Mail className='absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400' />
