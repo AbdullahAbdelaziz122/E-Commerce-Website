@@ -19,7 +19,7 @@ const Footer = () => {
     ];
     
     return (
-        <footer className='bg-[#F0F0F0] pt-20 pb-10'>
+        <footer className='bg-[#F0F0F0] pt-20 pb-10 mt-20'>
             {/* Newsletter Section - Black Box */}
             <div className='px-4 md:px-16 lg:px-24'>
                 <div className='bg-black rounded-[20px] lg:grid lg:grid-cols-2 px-6 py-8 md:px-16 md:py-10 -mt-32 relative z-10'>

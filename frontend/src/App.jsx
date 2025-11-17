@@ -10,6 +10,7 @@ import Cart from './pages/cart.jsx'
 import Order from './pages/Order.jsx'
 import Shop from './pages/shop.jsx'
 import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/orders' element={<Order/>} />
         <Route path='/shop' element={<Shop/>} />
       </Routes>
+      <Footer/>
     </div>
   )
 }

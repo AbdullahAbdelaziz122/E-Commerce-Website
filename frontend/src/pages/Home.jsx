@@ -20,7 +20,6 @@ const Home = () => {
       <Categories /> 
       <Reviews />
 
-      <Footer/>
     </div>
   )
 }
