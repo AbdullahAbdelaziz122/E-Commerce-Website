@@ -3,7 +3,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChevronRight, ChevronUp, ListFilter } from "lucide-react";
 import { X } from "lucide-react";
+import PriceRangeSlider from "../components/PriceRangeSlider";
+import { useShop } from "../context/ShopContext";
 const Collection = () => {
+  
+
+  const {products,currency,loading} = useShop()
   
   const [tabsOpen, setTabsOpen] = useState({
   filter: false,
@@ -13,6 +18,8 @@ const Collection = () => {
   dress: false,
   });
 
+
+  const [localValues, setLocalValues] = useState([0, 100000])
 
   const handleOpenTab = (tabName, tabState) =>{
     setTabsOpen(prev => ({
@@ -98,11 +105,11 @@ const Collection = () => {
         <div className="">
           <div className="flex flex-row justify-between items-center w-full">
             <p className="text-sm font-medium">Prices</p>
-            
             <ChevronRight onClick={() => handleOpenTab('price', !tabsOpen.price)}
               className={`w-4 h-4 cursor-pointer ${tabsOpen.price ? 'rotate-90' : ''}  `}
              />
           </div>
+          {tabsOpen.price && <PriceRangeSlider  currency={currency} localValues={localValues} setLocalValues={setLocalValues}/>}
           <div className="flex flex-col  gap-2 text-sm font-light text-gray-700">
             {/* Content */}
           </div>
