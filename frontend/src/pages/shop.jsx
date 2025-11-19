@@ -1,10 +1,28 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ChevronRight, ListFilter } from "lucide-react";
+import { ChevronRight, ChevronUp, ListFilter } from "lucide-react";
 import { X } from "lucide-react";
 const Collection = () => {
-  const [showFilter, setShowFiliter] = useState(false);
+  
+  const [tabsOpen, setTabsOpen] = useState({
+  filter: false,
+  price: false,
+  color: false,
+  size: false,
+  dress: false,
+  });
+
+
+  const handleOpenTab = (tabName, tabState) =>{
+    setTabsOpen(prev => ({
+      ...prev,
+      [tabName]:tabState
+    }))
+  }
+
+
+
   const clothes = [
     {
       id: 1,
@@ -31,10 +49,10 @@ const Collection = () => {
   return (
     // Shop divided left for filter and right for collection
     <div className=" flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
-      {showFilter && (
+      {tabsOpen.filter && (
         <div
           className="fixed inset-0 bg-black/40 z-40 sm:hidden"
-          onClick={() => setShowFiliter(false)}
+          onClick={() => handleOpenTab("filter",false)}
         />
       )}
 
@@ -44,7 +62,7 @@ const Collection = () => {
         sm:min-w-60 border border-gray-300 rounded-2xl px-5 py-3  
         bg-white z-50 sm:z-0 
         absolute sm:static sm:h-auto sm:w-auto
-        ${showFilter ? "fixed top-1/6 left-0 h-screen w-screen" : "hidden"}
+        ${tabsOpen.filter ? "fixed top-1/6 left-0 h-screen w-screen" : "hidden"}
         sm:block
         `}
       >
@@ -54,7 +72,7 @@ const Collection = () => {
           </p>
           <ListFilter className="border border-gray-300 p-2 w-8 h-8 rounded-full cursor-pointer hidden sm:block" />
           <X
-            onClick={() => setShowFiliter(false)}
+            onClick={() => handleOpenTab("filter",false)}
             className="border border-gray-300 p-2 w-8 h-8 rounded-full cursor-pointer sm:hidden"
           />
         </div>
@@ -80,7 +98,10 @@ const Collection = () => {
         <div className="">
           <div className="flex flex-row justify-between items-center w-full">
             <p className="text-sm font-medium">Prices</p>
-            <ChevronRight className="w-4 h-4 cursor-pointer" />
+            
+            <ChevronRight onClick={() => handleOpenTab('price', !tabsOpen.price)}
+              className={`w-4 h-4 cursor-pointer ${tabsOpen.price ? 'rotate-90' : ''}  `}
+             />
           </div>
           <div className="flex flex-col  gap-2 text-sm font-light text-gray-700">
             {/* Content */}
@@ -92,7 +113,9 @@ const Collection = () => {
         <div className="flex">
           <div className="flex flex-row justify-between items-center w-full">
             <p className="text-sm font-medium">Colors</p>
-            <ChevronRight className="w-4 h-4 cursor-pointer" />
+            <ChevronRight onClick={() => handleOpenTab('color', !tabsOpen.color)}
+              className={`w-4 h-4 cursor-pointer ${tabsOpen.color ? 'rotate-90' : ''}  `}
+             />
           </div>
         
           <div className="flex flex-col  gap-2 text-sm font-light text-gray-700">
@@ -105,7 +128,9 @@ const Collection = () => {
         <div className="">
            <div className="flex flex-row justify-between items-center w-full">
             <p className="text-sm font-medium">Size</p>
-            <ChevronRight className="w-4 h-4 cursor-pointer" />
+            <ChevronRight onClick={() => handleOpenTab('size', !tabsOpen.size)}
+              className={`w-4 h-4 cursor-pointer ${tabsOpen.size ? 'rotate-90' : ''}  `}
+             />
           </div>
           <div className="flex flex-col  gap-2 text-sm font-light text-gray-700">
             {/* Content */}
@@ -117,7 +142,9 @@ const Collection = () => {
         <div className="">
            <div className="flex flex-row justify-between items-center w-full">
             <p className="text-sm font-medium">Dress Style</p>
-            <ChevronRight className="w-4 h-4 cursor-pointer" />
+            <ChevronRight onClick={() => handleOpenTab('dress', !tabsOpen.dress)}
+              className={`w-4 h-4 cursor-pointer ${tabsOpen.dress ? 'rotate-90' : ''}  `}
+             />
           </div>
           <div className="flex flex-col  gap-2 text-sm font-light text-gray-700">
             {/* Content */}
@@ -143,7 +170,7 @@ const Collection = () => {
             </p>
           </div>
           <ListFilter
-            onClick={() => setShowFiliter(!showFilter)}
+            onClick={() => handleOpenTab( "filter",!tabsOpen.filter)}
             className="border border-gray-300 p-2 w-8 h-8 rounded-full cursor-pointer sm:hidden"
           />
         </div>
