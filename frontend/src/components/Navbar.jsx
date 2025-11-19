@@ -37,7 +37,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="relative grid grid-cols-[auto_minmax(400px,auto)_1fr_minmax(100px,auto)] items-center px-6 py-5 font-medium w-full">
+    <nav className="relative grid lg:grid-cols-[auto_minmax(400px,auto)_1fr_minmax(100px,auto)] items-center px-6 py-5 font-medium w-full">
       {/* LEFT */}
       <div className="flex col-span-2 md:col-1 items-center gap-4">
         <img
